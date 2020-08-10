@@ -14,10 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: yum remove --noautoremove vim-common vim-minimal vim-enhanced
+- name: rpm -e --nodeps vim-common vim-minimal vim-enhanced
   shell: |
     set -o pipefail
-    yum remove --noautoremove vim-common vim-minimal vim-enhanced
+    rpm -e --nodeps vim-common vim-minimal vim-enhanced
   args:
     executable: "/bin/bash"
     removes: "/usr/share/vim/vim74"
