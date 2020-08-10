@@ -15,8 +15,11 @@
 # limitations under the License.
 
 - name: yum remove --noautoremove vim-common vim-minimal vim-enhanced
-  command: yum remove --noautoremove vim-common vim-minimal vim-enhanced
+  shell: |
+    set -o pipefail
+    yum remove --noautoremove vim-common vim-minimal vim-enhanced
   args:
+    executable: "/bin/bash"
     removes: "/usr/share/vim/vim74"
   register: result
   until: result is succeeded
