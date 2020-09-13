@@ -14,6 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+_rpm_key:
+  - key: "https://mirror.ghettoforge.org/distributions/gf/RPM-GPG-KEY-gf.el7"
+    fingerprint: "B43EA89286F4B6FDFF83FED1D005AE31DA8B7718"
+    state: "present"
+
 _rpm_repository:
   - name: "http://mirror.ghettoforge.org/distributions/gf/gf-release-latest.gf.el7.noarch.rpm"
     state: "latest"

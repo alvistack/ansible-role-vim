@@ -14,22 +14,20 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: rpm -e --nodeps vim-common vim-minimal vim-enhanced
-  shell: |
-    set -o pipefail
-    rpm -e --nodeps vim-common vim-minimal vim-enhanced
-  args:
-    executable: "/bin/bash"
-    removes: "/usr/share/vim/vim74"
-  register: result
-  until: result is succeeded
-  changed_when: result is not succeeded
-  tags: vim
-
 - name: yum install gnupg2
   yum:
     name: "gnupg2"
     state: "present"
+  register: result
+  until: result is succeeded
+  tags: vim
+
+- name: rpm --import
+  rpm_key:
+    key: "{{ item.key }}"
+    fingerprint: "{{ item.fingerprint }}"
+    state: "{{ item.state }}"
+  loop: "{{ _rpm_key }}"
   register: result
   until: result is succeeded
   tags: vim
@@ -41,6 +39,18 @@
   loop: "{{ _rpm_repository }}"
   register: result
   until: result is succeeded
+  tags: vim
+
+- name: rpm -e --nodeps vim-common vim-minimal vim-enhanced
+  shell: |
+    set -o pipefail
+    rpm -e --nodeps vim-common vim-minimal vim-enhanced
+  args:
+    executable: "/bin/bash"
+    removes: "/usr/share/vim/vim74"
+  register: result
+  until: result is succeeded
+  changed_when: result is not succeeded
   tags: vim
 
 - name: yum install
