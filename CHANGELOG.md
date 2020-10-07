@@ -3,7 +3,7 @@
 ## 4.6.0 - TBC
 
 ### Major Changes
-  
+
   - Import Yum repo GPG key manually
 
 ## 4.5.0 - 2020-08-26
