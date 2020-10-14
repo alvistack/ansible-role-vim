@@ -20,7 +20,6 @@
     state: "present"
   register: result
   until: result is succeeded
-  tags: vim
 
 - name: rpm --import
   rpm_key:
@@ -30,7 +29,6 @@
   loop: "{{ _rpm_key }}"
   register: result
   until: result is succeeded
-  tags: vim
 
 - name: yum-config-manager --add-repo
   yum:
@@ -39,7 +37,6 @@
   loop: "{{ _rpm_repository }}"
   register: result
   until: result is succeeded
-  tags: vim
 
 - name: rpm -e --nodeps vim-common vim-minimal vim-enhanced
   shell: |
@@ -51,7 +48,6 @@
   register: result
   until: result is succeeded
   changed_when: result is not succeeded
-  tags: vim
 
 - name: yum install
   yum:
@@ -61,4 +57,3 @@
   loop: "{{ _yum }}"
   register: result
   until: result is succeeded
-  tags: vim

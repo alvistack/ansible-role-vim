@@ -3,7 +3,8 @@
 ## 4.6.0 - TBC
 
 ### Major Changes
-  
+
+  - Remove redundant tags from tasks
   - Import Yum repo GPG key manually
 
 ## 4.5.0 - 2020-08-26
