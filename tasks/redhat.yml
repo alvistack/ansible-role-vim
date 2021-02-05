@@ -14,46 +14,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-- name: yum install gnupg2
-  yum:
-    name: "gnupg2"
-    state: "present"
-  register: result
-  until: result is succeeded
-
-- name: rpm --import
-  rpm_key:
-    key: "{{ item.key }}"
-    fingerprint: "{{ item.fingerprint }}"
-    state: "{{ item.state }}"
-  loop: "{{ _rpm_key }}"
-  register: result
-  until: result is succeeded
-
-- name: yum-config-manager --add-repo
-  yum:
-    name: "{{ item.name }}"
-    state: "{{ item.state }}"
-  loop: "{{ _rpm_repository }}"
-  register: result
-  until: result is succeeded
-
-- name: rpm -e --nodeps vim-common vim-minimal vim-enhanced
-  shell: |
-    set -euo pipefail
-    rpm -e --nodeps vim-common vim-minimal vim-enhanced
-  args:
-    executable: "/bin/bash"
-    removes: "/usr/share/vim/vim74"
-  register: result
-  until: result is succeeded
-  changed_when: result is not succeeded
-
 - name: yum install
   yum:
     name: "{{ item.name }}"
     state: "{{ item.state }}"
-    enablerepo: "{{ item.enablerepo | default(None) or omit }}"
   loop: "{{ _yum }}"
   register: result
   until: result is succeeded

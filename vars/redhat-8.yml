@@ -14,11 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-_rpm_key: []
-
-_rpm_repository: []
-
 _yum:
-  - { state: "latest", name: "vim-common" }
   - { state: "latest", name: "vim-minimal" }
   - { state: "latest", name: "vim-enhanced" }

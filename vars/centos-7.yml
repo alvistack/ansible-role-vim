@@ -19,11 +19,11 @@ _rpm_key:
     fingerprint: "B43EA89286F4B6FDFF83FED1D005AE31DA8B7718"
     state: "present"
 
-_rpm_repository:
-  - name: "http://mirror.ghettoforge.org/distributions/gf/gf-release-latest.gf.el7.noarch.rpm"
-    state: "latest"
+_rpm_download:
+  - url: "http://mirror.ghettoforge.org/distributions/gf/gf-release-latest.gf.el7.noarch.rpm"
+    dest: "/var/cache/ansible/654a12202f72826912110bff34b68fbc399fd97b756d59ea16c02457a4c00208/gf-release-latest.gf.el7.noarch.rpm"
+    checksum: "sha256:654a12202f72826912110bff34b68fbc399fd97b756d59ea16c02457a4c00208"
 
 _yum:
-  - { state: "latest", name: "vim-common", enablerepo: "gf-plus" }
   - { state: "latest", name: "vim-minimal", enablerepo: "gf-plus" }
   - { state: "latest", name: "vim-enhanced", enablerepo: "gf-plus" }

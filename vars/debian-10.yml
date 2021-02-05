@@ -20,5 +20,4 @@ _apt_repository: []
 
 _apt:
   - { state: "latest", name: "vim" }
-  - { state: "latest", name: "vim-common" }
   - { state: "latest", name: "vim-tiny" }
