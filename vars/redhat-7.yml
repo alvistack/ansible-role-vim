@@ -15,7 +15,7 @@
 # limitations under the License.
 
 _rpm_key:
-  - key: "https://mirror.ghettoforge.org/distributions/gf/RPM-GPG-KEY-gf.el7"
+  - key: "http://mirror.ghettoforge.org/distributions/gf/RPM-GPG-KEY-gf.el7"
     fingerprint: "B43EA89286F4B6FDFF83FED1D005AE31DA8B7718"
     state: "present"
 
