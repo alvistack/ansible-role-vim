@@ -20,7 +20,7 @@ _apt_key:
     state: "present"
 
 _apt_repository:
-  - repo: "deb http://ppa.launchpad.net/jonathonf/vim/ubuntu groovy main"
+  - repo: "deb http://ppa.launchpad.net/jonathonf/vim/ubuntu hirsute main"
     state: "present"
 
 _apt:
