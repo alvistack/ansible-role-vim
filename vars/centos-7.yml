@@ -21,8 +21,8 @@ _rpm_key:
 
 _rpm_download:
   - url: "http://mirror.ghettoforge.org/distributions/gf/gf-release-latest.gf.el7.noarch.rpm"
-    dest: "/var/cache/ansible/654a12202f72826912110bff34b68fbc399fd97b756d59ea16c02457a4c00208/gf-release-latest.gf.el7.noarch.rpm"
-    sha256sum: "654a12202f72826912110bff34b68fbc399fd97b756d59ea16c02457a4c00208"
+    dest: "/tmp/654a12202f72826912110bff34b68fbc399fd97b756d59ea16c02457a4c00208/gf-release-latest.gf.el7.noarch.rpm"
+    checksum: "654a12202f72826912110bff34b68fbc399fd97b756d59ea16c02457a4c00208"
 
 _yum:
   - { state: "latest", name: "vim-minimal", enablerepo: "gf-plus" }
