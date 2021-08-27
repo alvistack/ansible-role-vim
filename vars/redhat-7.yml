@@ -15,15 +15,20 @@
 # limitations under the License.
 
 _rpm_key:
-  - key: "http://mirror.ghettoforge.org/distributions/gf/RPM-GPG-KEY-gf.el7"
-    fingerprint: "B43EA89286F4B6FDFF83FED1D005AE31DA8B7718"
+  - key: "http://download.opensuse.org/repositories/home:/alvistack/CentOS_7/repodata/repomd.xml.key"
+    fingerprint: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
     state: "present"
 
-_rpm_download:
-  - url: "http://mirror.ghettoforge.org/distributions/gf/gf-release-latest.gf.el7.noarch.rpm"
-    dest: "/var/cache/ansible/654a12202f72826912110bff34b68fbc399fd97b756d59ea16c02457a4c00208/gf-release-latest.gf.el7.noarch.rpm"
-    checksum: "654a12202f72826912110bff34b68fbc399fd97b756d59ea16c02457a4c00208"
+_yum_repository:
+  - file: "home:alvistack"
+    name: "home_alvistack"
+    description: "home:alvistack (CentOS_7)"
+    baseurl: "http://download.opensuse.org/repositories/home:/alvistack/CentOS_7"
+    enabled: true
+    priority: "2"
+    gpgcheck: true
+    gpgkey: "http://download.opensuse.org/repositories/home:/alvistack/CentOS_7/repodata/repomd.xml.key"
+    state: "present"
 
 _yum:
-  - { state: "latest", name: "vim-minimal", enablerepo: "gf-plus" }
-  - { state: "latest", name: "vim-enhanced", enablerepo: "gf-plus" }
+  - { state: "latest", name: "vim" }
