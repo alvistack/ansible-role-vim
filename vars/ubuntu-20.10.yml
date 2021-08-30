@@ -15,14 +15,13 @@
 # limitations under the License.
 
 _apt_key:
-  - url: "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x4AB0F789CBA31744CC7DA76A8CF63AD3F06FC659"
-    id: "4AB0F789CBA31744CC7DA76A8CF63AD3F06FC659"
+  - url: "http://download.opensuse.org/repositories/home:/alvistack/xUbuntu_20.10/Release.key"
+    id: "789CFFDE0295B8A1F4E5690C4BECC97550D0B1FD"
     state: "present"
 
 _apt_repository:
-  - repo: "deb http://ppa.launchpad.net/jonathonf/vim/ubuntu groovy main"
+  - repo: "deb http://download.opensuse.org/repositories/home:/alvistack/xUbuntu_20.10 /"
     state: "present"
 
 _apt:
   - { state: "latest", name: "vim" }
-  - { state: "latest", name: "vim-tiny" }
