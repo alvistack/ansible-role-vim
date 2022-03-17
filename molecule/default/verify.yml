@@ -19,6 +19,6 @@
   become: true
   tasks:
     - name: vim --version
-      command: vim --version
+      ansible.builtin.command: vim --version
       register: result
       changed_when: result is not succeeded
